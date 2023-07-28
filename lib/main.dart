@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quick_tips/providers/tip_provider.dart';
 import 'package:quick_tips/screens/home_screen.dart';
+import 'package:quick_tips/screens/tip_calculation_screen.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
@@ -18,7 +21,8 @@ class MyApp extends StatelessWidget {
         darkTheme: ThemeData.dark(),
         initialRoute: '/',
         routes: {
-          '/': (context) => HomeScreen(),
+          '/': (context) => const HomeScreen(),
+          '/tipCalculation': (context) => const TipCalculationScreen(),
         },
       ),
     );
