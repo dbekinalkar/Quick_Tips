@@ -49,7 +49,7 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
             TextFormField(
               controller: _billAmountController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Bill Amount'),
+              decoration: const InputDecoration(labelText: 'Bill Amount'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter the bill amount.';
@@ -61,11 +61,11 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
                 return null;
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextFormField(
               controller: _tipPercentageController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Tip Percentage (%)'),
+              decoration: const InputDecoration(labelText: 'Tip Percentage (%)'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter the tip percentage.';
@@ -77,11 +77,11 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
                 return null;
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             TextFormField(
               controller: _splitByController,
               keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Number of People'),
+              decoration: const InputDecoration(labelText: 'Number of People'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter the number of people.';
@@ -93,7 +93,7 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
                 return null;
               },
             ),
-            SizedBox(height: 16),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: (_isBillAmountValid && _isTipPercentageValid && _isSplitByValid)
                   ? () {
@@ -102,11 +102,11 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
                       tipProvider.updateSplitBy(int.parse(_splitByController.text));
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => TipCalculationScreen()),
+                        MaterialPageRoute(builder: (context) => const TipCalculationScreen()),
                       );
                     }
                   : null,
-              child: Text('Calculate Tip'),
+              child: const Text('Calculate Tip'),
             ),
           ],
         ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quick_tips/screens/history_screen.dart';
 import 'package:quick_tips/widgets/tip_calculator_form.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -10,10 +11,20 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('QuickTips - Home'),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
-            TipCalculatorForm(),
+            const TipCalculatorForm(),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => const HistoryScreen()),
+                );
+              },
+              child: const Text("History"),
+            ),
           ],
         ),
       ),
