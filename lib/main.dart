@@ -27,7 +27,16 @@ class MyApp extends StatelessWidget {
             ),
           ),
         ),
-        darkTheme: ThemeData.dark(),
+        darkTheme: ThemeData(
+          primarySwatch: Colors.green, // 
+          colorScheme: const ColorScheme.dark(),
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green, // Color for elevated buttons
+              foregroundColor: Colors.white, // Text color for elevated buttons
+            ),
+          ),
+        ),
         themeMode: ThemeMode.system,
         initialRoute: '/',
         routes: {
