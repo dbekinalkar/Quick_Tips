@@ -65,7 +65,8 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
             TextFormField(
               controller: _tipPercentageController,
               keyboardType: TextInputType.number,
-              decoration: const InputDecoration(labelText: 'Tip Percentage (%)'),
+              decoration:
+                  const InputDecoration(labelText: 'Tip Percentage (%)'),
               validator: (value) {
                 if (value == null || value.isEmpty) {
                   return 'Please enter the tip percentage.';
@@ -95,15 +96,29 @@ class _TipCalculatorFormState extends State<TipCalculatorForm> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: (_isBillAmountValid && _isTipPercentageValid && _isSplitByValid)
+              onPressed: (_isBillAmountValid &&
+                      _isTipPercentageValid &&
+                      _isSplitByValid)
                   ? () {
-                      tipProvider.updateBillAmount(double.parse(_billAmountController.text));
-                      tipProvider.updateTipPercentage(double.parse(_tipPercentageController.text));
-                      tipProvider.updateSplitBy(int.parse(_splitByController.text));
+                      tipProvider.updateBillAmount(
+                          double.parse(_billAmountController.text));
+                      tipProvider.updateTipPercentage(
+                          double.parse(_tipPercentageController.text));
+                      tipProvider
+                          .updateSplitBy(int.parse(_splitByController.text));
+
+                      tipProvider.calculateTipAndAddToHistory();
+
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => const TipCalculationScreen()),
+                        MaterialPageRoute(
+                            builder: (context) => const TipCalculationScreen()),
                       );
+
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+                        content: Text('Tip added to history.'),
+                        duration: Duration(seconds: 2),
+                      ));
                     }
                   : null,
               child: const Text('Calculate Tip'),

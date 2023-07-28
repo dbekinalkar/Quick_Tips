@@ -18,13 +18,22 @@ class MyApp extends StatelessWidget {
       create: (context) => TipProvider(),
       child: MaterialApp(
         title: 'QuickTips',
-        theme: ThemeData.light(),
+        theme: ThemeData(
+          primarySwatch: Colors.green, // 
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.green, // Color for elevated buttons
+              foregroundColor: Colors.white, // Text color for elevated buttons
+            ),
+          ),
+        ),
         darkTheme: ThemeData.dark(),
+        themeMode: ThemeMode.system,
         initialRoute: '/',
         routes: {
           '/': (context) => const HomeScreen(),
           '/tipCalculation': (context) => const TipCalculationScreen(),
-          '/history': (context) => const HistoryScreen(),
+          '/history': (context) => HistoryScreen(),
         },
       ),
     );
